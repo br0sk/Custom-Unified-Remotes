@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ur:Remote xmlns:ur="http://unifiedremote.com/schemas/remote.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://unifiedremote.com/schemas/remote.xsd http://unifiedremote.com/schemas/remote.xsd"
+	Name="Screen Switcher" Icon="ScreenSwitcher.png" Author="John Eskilsson"
+	Description="Pick what screen to activate">
+
+	<Actions>
+		<Action Name="bedroom">
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>LWIN</Extra>
+				<Extra>VK_P</Extra>
+			</ActionRef>
+			<ActionRef Name="pause" Target="Util">
+				<Extra>500</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>HOME</Extra>
+			</ActionRef>
+			<ActionRef Name="pause" Target="Util">
+				<Extra>500</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>RETURN</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="study">
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>LWIN</Extra>
+				<Extra>VK_P</Extra>
+			</ActionRef>
+			<ActionRef Name="pause" Target="Util">
+				<Extra>500</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>END</Extra>
+			</ActionRef>
+			<ActionRef Name="pause" Target="Util">
+				<Extra>500</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>RETURN</Extra>
+			</ActionRef>
+		</Action>
+	</Actions>
+
+	<Layout>
+		<Row>
+			<Control Type="Label" Text="Switch Screens" Height="wrap" />
+		</Row>
+		<Row>
+			<Control Type="Button" OnClick="bedroom" Align="Left" Width="100" Text="Bedroom"/> 
+			<Control Type="Button" OnClick="study" Align="Right" Width="100" Text="Study"/>
+		</Row>
+	</Layout>
+</ur:Remote>
