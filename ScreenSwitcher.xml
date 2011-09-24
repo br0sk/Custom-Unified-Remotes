@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://unifiedremote.com/schemas/remote.xsd http://unifiedremote.com/schemas/remote.xsd"
 	Name="Screen Switcher" Icon="ScreenSwitcher.png" Author="John Eskilsson"
 	Description="Pick what screen to activate">
-
 	<Actions>
 		<Action Name="bedroom">
 			<ActionRef Name="stroke" Target="Input">
