@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ur:Remote xmlns:ur="http://unifiedremote.com/schemas/remote.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://unifiedremote.com/schemas/remote.xsd http://unifiedremote.com/schemas/remote.xsd"
+	Name="Plex Play Remote" Icon="plex.png" Author="John Eskilsson"
+	Description="Show what is playing now">
+	<Actions>
+		<Action Name="DoLaunch">
+			<ActionRef Name="Run" Target="Task"
+				Extra="Plex.exe" />
+			<ActionRef Name="SwitchTo" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="onProgress">
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>VK_X</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="DoVolumeUp">
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>OEM_PLUS</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="DoVolumeDown">
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>OEM_MINUS</Extra>
+			</ActionRef>
+		</Action>
+	<Action Name="getData">
+		<ActionRef Name="XPath" Target="Xml">
+			<Extra Name="Uri">http://127.0.0.1:3000/xbmcCmds/xbmcHttp?command=GetCurrentlyPlaying</Extra>
+			<Extra Name="XPath">/xml/tag[1]</Extra>
+			
+		</ActionRef>
+	</Action>
+		
+	</Actions>
+	<Layout OnVolumeUp="DoVolumeUp" OnVolumeDown="DoVolumeDown"
+		OnLaunch="DoLaunch">
+		<Row>
+			<Control Type="Slider" OnProgress="onProgress" Width="fill" Progress="30" Text="Media Progress"/>
+		</Row>
+		<Row>
+			<Control Type="Orb" OnClick="getData" Width="fill" Text="Get Data"/>
+		</Row>
+		<Row>
+			<Control Type="Orb" OnClick="getData" Width="fill" Text="Get Data"/>
+		</Row>
+
+	</Layout>
+</ur:Remote>
