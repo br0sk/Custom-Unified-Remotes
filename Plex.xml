@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ur:Remote xmlns:ur="http://unifiedremote.com/schemas/remote.xsd"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://unifiedremote.com/schemas/remote.xsd http://unifiedremote.com/schemas/remote.xsd"
 	Name="Plex Remote" Icon="plex.png" Author="John Eskilsson"
 	Description="Control Plex via Unified Remote">
 	<Actions>
 		<Action Name="DoLaunch">
-			<ActionRef Name="Run" Target="Task"
-				Extra="Plex.exe" />
+			<ActionRef Name="Run" Target="Task" Extra="%ProgramFiles(x86)%\Plex\Plex Media Center\Plex.exe" />
 			<ActionRef Name="SwitchTo" Target="Task">
 				<Extra Name="Process">Plex</Extra>
 			</ActionRef>
@@ -24,8 +23,7 @@
 		</Action>
 		<Action Name="play_pause">
 			<ActionRef Name="stroke" Target="Input">
-				<Extra>
-</Extra>
+				<Extra>VK_P</Extra>
 			</ActionRef>
 		</Action>
 		<Action Name="left">
