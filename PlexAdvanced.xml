@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+A few things might need changing to get it fully working in your configuration.
+
+1. The paths to Plex might need changing.
+If you are on Windows 7 64 bit this is the path to use: %ProgramFiles(x86)%\Plex\Plex Media Center\Plex.exe
+If you are on the 32 bit version this is the path to use: %ProgramFiles%\Plex\Plex Media Center\Plex.exe
+If you have installed Plex in a custom location please use that location.
+Make sure to search and replace for the location in this file, it occurs in more than one place.
+
+2. To get the action "reloadPlexLibrary" working you will need to change the IP and key of your personal libraries.
+The url looks like this: 
+http://192.168.10.2:32400/library/sections/2/refresh
+Replace 192.168.10.2 with the IP or name of the machine that runs the server part of Plex.
+32400 Is the default port and shall not be changed unless you have set another port up in your configuration.
+2 is the number of the section to refresh(makes sure that all files added will be added to the library). You can find it by visiting this URL http://[Your_plex_server_ip]:32400/library/sections.
+Fin the key number for your section and add one section like this:
+			<ActionRef Name="Get" Target="Web">
+				<Extra Name="Url">http://192.168.10.2:32400/library/sections/2/refresh</Extra>
+			</ActionRef>
+for every section you want to update. 
+3. Just remove anything elses that you don't need. The part where I move the screen from the bedroom to the study is very specialised so you might want to get rid of that one.
+ -->
+
+<ur:Remote xmlns:ur="http://unifiedremote.com/schemas/remote.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://unifiedremote.com/schemas/remote.xsd http://unifiedremote.com/schemas/remote.xsd"
+	Name="Plex Remote" Icon="plex.png" Author="John Eskilsson"
+	Description="Control Plex via Unified Remote">
+	<Actions>
+		<Action Name="DoLaunch">
+			<ActionRef Name="Run" Target="Task"
+				Extra="%ProgramFiles(x86)%\Plex\Plex Media Center\Plex.exe" />
+			<ActionRef Name="SwitchTo" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="stop">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>VK_X</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="up">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>UP</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="play_pause">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>VK_P</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="left">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>LEFT</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="select">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>RETURN</Extra>
+			</ActionRef>
+		</Action>
+
+		<Action Name="right">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>RIGHT</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="toggle_movie_menu">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>TAB</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="down">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>DOWN</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="back1">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>ESCAPE</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="rwd">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>VK_R</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="fullscreen">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>MENU</Extra>
+				<Extra>RETURN</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="ff">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>VK_F</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="vdown">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>OEM_MINUS</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="play_menu">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>VK_M</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="vup">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>OEM_PLUS</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="DoVolumeUp">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>OEM_PLUS</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="DoVolumeDown">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>OEM_MINUS</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="DoPopupMenu">
+			<ActionRef Name="SwitchToWait" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>VK_C</Extra>
+			</ActionRef>
+		</Action>
+
+		<Action Name="reloadPlexLibrary">
+			<!-- Reload the TV show library -->
+			<ActionRef Name="Get" Target="Web">
+				<Extra Name="Url">http://192.168.10.2:32400/library/sections/2/refresh</Extra>
+			</ActionRef>
+			<!-- Reload the Movie library -->
+			<ActionRef Name="Get" Target="Web">
+				<Extra Name="Url">http://192.168.10.2:32400/library/sections/1/refresh</Extra>
+			</ActionRef>
+		</Action>
+		<!-- Use the screen switcher in Windows -->
+		<Action Name="move2Bedroom">
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>LWIN</Extra>
+				<Extra>VK_D</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>LWIN</Extra>
+				<Extra>VK_P</Extra>
+			</ActionRef>
+			<ActionRef Name="pause" Target="Util">
+				<Extra>500</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>HOME</Extra>
+			</ActionRef>
+			<ActionRef Name="pause" Target="Util">
+				<Extra>500</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>RETURN</Extra>
+			</ActionRef>
+			<!-- Start Plex when moving over to the Bedroom -->
+			<ActionRef Name="Run" Target="Task"
+				Extra="%ProgramFiles(x86)%\Plex\Plex Media Center\Plex.exe" />
+			<ActionRef Name="SwitchTo" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="move2Study">
+			<ActionRef Name="Kill" Target="Task">
+				<Extra Name="Process">Plex</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>LWIN</Extra>
+				<Extra>VK_P</Extra>
+			</ActionRef>
+			<ActionRef Name="pause" Target="Util">
+				<Extra>500</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>END</Extra>
+			</ActionRef>
+			<ActionRef Name="pause" Target="Util">
+				<Extra>500</Extra>
+			</ActionRef>
+			<ActionRef Name="stroke" Target="Input">
+				<Extra>RETURN</Extra>
+			</ActionRef>
+		</Action>
+		<Action Name="DoWindowsVolumeDown">
+			<ActionRef Name="Press" Target="Core.Input" Extra="VOLUME_DOWN" />
+		</Action>
+		<Action Name="DoWindowsVolumeMute">
+			<ActionRef Name="Press" Target="Core.Input" Extra="VOLUME_MUTE" />
+		</Action>
+		<Action Name="DoWindowsVolumeUp">
+			<ActionRef Name="Press" Target="Core.Input" Extra="VOLUME_UP" />
+		</Action>
+	</Actions>
+
+	<Layout OnVolumeUp="DoVolumeUp" OnVolumeDown="DoVolumeDown"
+		OnLaunch="DoLaunch" NoScroll="true">
+		<Row>
+			<Control Type="Orb" OnClick="rwd" Icon="RWD" />
+			<Control Type="Orb" OnClick="fullscreen" Icon="FULLSCREEN" />
+			<Control Type="Orb" OnClick="ff" Icon="FF" />
+		</Row>
+		<Row>
+			<Control Type="Orb" OnClick="vdown" Icon="VDOWN" />
+			<Control Type="Orb" OnClick="vup" Icon="VUP" />
+		</Row>
+		<Row>
+			<Control Type="Orb" OnClick="stop" Icon="STOP" />
+			<Control Type="Orb" OnClick="up" Icon="UP" />
+			<Control Type="Orb" OnClick="play_pause" Icon="PLAY_PAUSE" />
+		</Row>
+		<Row>
+			<Control Type="Orb" OnClick="left" Icon="LEFT" />
+			<Control Type="Orb" OnClick="select" Icon="SELECT" />
+			<Control Type="Orb" OnClick="right" Icon="RIGHT" />
+		</Row>
+		<Row>
+			<Control Type="Orb" OnClick="toggle_movie_menu" Text="Menu/Full" />
+			<Control Type="Orb" OnClick="down" Icon="DOWN" />
+			<Control Type="Orb" OnClick="back1" Icon="BACK1" />
+		</Row>
+		<Row>
+			<Control Type="Orb" OnClick="play_menu" Text="Menu" />
+			<Control Type="Orb" OnClick="DoPopupMenu" Text="Popup Menu"></Control>
+		</Row>
+		<Row>
+			<Control Type="Label" Text="---Extra Controls---" />
+		</Row>
+		<Row>
+			<Control Type="Orb" OnClick="move2Bedroom" Text="Bedroom" />
+			<Control Type="Orb" OnClick="reloadPlexLibrary" Text="Update Plex Library" />
+			<Control Type="Orb" OnClick="move2Study" Text="Study" />
+		</Row>
+		<Row>
+			<Control Type="Orb" OnClick="DoWindowsVolumeDown" Icon="VDOWN" />
+			<Control Type="Orb" OnClick="DoWindowsVolumeMute" Icon="VMUTE" />
+			<Control Type="Orb" OnClick="DoWindowsVolumeUp" Icon="VUP" />
+		</Row>
+	</Layout>
+</ur:Remote>
