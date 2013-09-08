@@ -254,7 +254,7 @@ for every section you want to update.
 	</Actions>
 
 	<Layout OnVolumeUp="DoVolumeUp" OnVolumeDown="DoVolumeDown"
-		OnLaunch="DoLaunch" NoScroll="true">
+		OnLaunch="DoLaunch" Scroll="Stretch">
 		<Row>
 			<Control Type="Orb" OnClick="rwd" Icon="RWD" />
 			<Control Type="Orb" OnClick="fullscreen" Icon="FULLSCREEN" />
