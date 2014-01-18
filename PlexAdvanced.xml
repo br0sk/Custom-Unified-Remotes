@@ -216,7 +216,7 @@ for every section you want to update.
 			</ActionRef>
 			<!-- Start Plex when moving over to the Bedroom -->
 			<ActionRef Name="Run" Target="Task"
-				Extra="%ProgramFiles(x86)%\Plex\Plex Media Center\Plex.exe" />
+				Extra="%ProgramFiles(x86)%\Plex Home Theater\Plex Home Theater.exe" />
 			<ActionRef Name="SwitchTo" Target="Task">
 				<Extra Name="Process">Plex</Extra>
 			</ActionRef>
