@@ -3,8 +3,8 @@
 A few things might need changing to get it fully working in your configuration.
 
 1. The paths to Plex might need changing.
-If you are on Windows 7 64 bit this is the path to use: %ProgramFiles(x86)%\Plex\Plex Media Center\Plex.exe
-If you are on the 32 bit version this is the path to use: %ProgramFiles%\Plex\Plex Media Center\Plex.exe
+If you are on Windows 7 64 bit this is the path to use: %ProgramFiles(x86)%\Plex Home Theater\Plex Home Theater.exe
+If you are on the 32 bit version this is the path to use: %ProgramFiles%\Plex Home Theater\Plex Home Theater.exe
 If you have installed Plex in a custom location please use that location.
 Make sure to search and replace for the location in this file, it occurs in more than one place.
 
@@ -30,7 +30,7 @@ for every section you want to update.
 	<Actions>
 		<Action Name="DoLaunch">
 			<ActionRef Name="Run" Target="Task"
-				Extra="%ProgramFiles(x86)%\Plex\Plex Media Center\Plex.exe" />
+				Extra="%ProgramFiles(x86)%\Plex Home Theater\Plex Home Theater.exe" />
 			<ActionRef Name="SwitchTo" Target="Task">
 				<Extra Name="Process">Plex</Extra>
 			</ActionRef>
